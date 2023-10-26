@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Netflix - Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Profile</h1>
+        <div class="profile" id="userProfile">
+            <img src="" alt="User Avatar" id="userAvatar">
+            <p id="userName"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to retrieve the 'id' parameter from the URL
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const userId = urlParams.get("id"); // Get the 'id' parameter value
+
+        // Here you can use the userId to fetch user data from your database
+        // For this example, we'll use hardcoded data
+        const usersData = {
+            user1: { name: "User 1", avatar: "user1.jpg" },
+            user2: { name: "User 2", avatar: "user2.jpg" },
+            user3: { name: "User 3", avatar: "user3.jpg" },
+        };
+
+        if (userId && usersData[userId]) {
+            // Update the profile information based on the user's data
+            const user = usersData[userId];
+            document.getElementById("userName").textContent = user.name;
+            document.getElementById("userAvatar").src = user.avatar;
+        } else {
+            // Handle the case when the 'id' parameter is invalid or missing
+            document.getElementById("userProfile").innerHTML = "Invalid or missing profile.";
+        }
+    </script>
+</body>
+</html>

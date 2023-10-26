@@ -1,0 +1,1 @@
+INSERT INTO `cats`(`cat_id`, `cat_name`, `cat_type`, `age`, `cat_img`, `owner_id`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]')
